@@ -1,0 +1,43 @@
+name: OpenCart Rate Limits
+description: >
+  OpenCart is a self-hosted, open-source platform. The core software does
+  not enforce application-level rate limits; throughput is constrained by
+  the merchant's own hosting environment (server CPU, memory, and
+  bandwidth). The platform does implement IP-based access control for API
+  credentials as a security measure.
+url: https://docs.opencart.com/admin-interface/system/users/api
+limits:
+  - name: IP Allowlist
+    description: >
+      Each API key can be restricted to a list of allowed IP addresses.
+      Requests from IPs not on the allowlist are rejected. This is a
+      security control, not a throughput limit.
+    type: security
+    enforced_by: application
+  - name: Server / Hosting Limits
+    description: >
+      Rate limiting in practice is governed by the web server (Apache/Nginx)
+      and PHP configuration of the self-hosted environment. Merchants and
+      hosting providers may configure connection limits, max request rates,
+      or throttle at the WAF/CDN layer.
+    type: infrastructure
+    enforced_by: hosting-provider
+  - name: Recommended Batch Processing
+    description: >
+      OpenCart integration guides recommend processing API requests in
+      batches of up to 50 items with a 1-second delay between batches to
+      avoid server overload in self-hosted environments.
+    type: best-practice
+    batch_size: 50
+    delay_between_batches_ms: 1000
+error_codes:
+  - code: 429
+    meaning: Too Many Requests — returned when hosting-level throttling is triggered
+  - code: 401
+    meaning: Unauthorized — invalid or missing API token
+  - code: 403
+    meaning: Forbidden — IP address not in the allowed list
+notes: >
+  Because OpenCart is self-hosted, operators have full control over rate
+  limiting configuration. There are no SaaS-style quota tiers or usage
+  caps imposed by OpenCart Limited on the core platform.

@@ -1,0 +1,51 @@
+name: OpenCart FinOps
+description: >
+  OpenCart is a free, open-source self-hosted eCommerce platform. Direct
+  API usage carries no per-call or subscription cost from OpenCart Limited.
+  Financial considerations are infrastructure-driven (hosting, CDN, support
+  contracts) rather than API-consumption driven.
+url: https://www.opencart.com
+cost_model: infrastructure
+currency: USD
+cost_drivers:
+  - name: Hosting Infrastructure
+    description: >
+      All API traffic runs on merchant-owned or leased servers. Cost scales
+      with compute, memory, and bandwidth consumed by API consumers.
+    type: variable
+    billed_by: hosting-provider
+  - name: Core Platform License
+    description: >
+      The OpenCart core is MIT-licensed and free. No royalty or license fee
+      is owed to OpenCart Limited for API usage.
+    cost: 0
+    type: fixed
+  - name: Premium Marketplace Extensions
+    description: >
+      Additional API capabilities (e.g., third-party REST API extensions
+      from opencart-api.com or similar) may carry a one-time license fee,
+      typically in the range of $50–$300 USD per extension.
+    type: one-time
+    range_usd:
+      min: 50
+      max: 300
+  - name: Commercial Support / Managed Hosting
+    description: >
+      OpenCart Limited offers optional paid support plans and managed cloud
+      hosting. Pricing is negotiated directly with OpenCart Limited and is
+      not publicly listed.
+    type: variable
+    url: https://www.opencart.com/index.php?route=cms/company
+optimization_tips:
+  - Implement server-side caching (Redis/Memcached) to reduce redundant API
+    database queries and lower hosting compute costs.
+  - Use batch API calls (up to 50 items per batch with 1s delays) to avoid
+    resource spikes on shared hosting.
+  - Leverage webhooks for event-driven integrations instead of polling the
+    API on a schedule, reducing unnecessary server load.
+  - Host on auto-scaling infrastructure (e.g., cloud VMs with auto-scaling)
+    to match compute spend to actual API demand.
+notes: >
+  Because OpenCart has no metered API pricing, FinOps optimization focuses
+  entirely on infrastructure efficiency. The primary levers are caching,
+  batching, and right-sizing the hosting environment.

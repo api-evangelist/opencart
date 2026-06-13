@@ -1,0 +1,42 @@
+name: OpenCart Plans and Pricing
+description: >
+  OpenCart is a free and open-source eCommerce platform. There are no
+  subscription tiers for the core software — merchants download and
+  self-host the platform at no cost. Optional paid services are available
+  through OpenCart Limited and the marketplace for hosting, support, and
+  premium extensions.
+url: https://www.opencart.com/index.php?route=cms/download
+plans:
+  - name: Open Source (Self-Hosted)
+    description: >
+      The core OpenCart platform is free to download, install, and use on
+      any PHP/MySQL hosting environment. All API capabilities ship with the
+      core and require no paid plan to access.
+    price: 0
+    currency: USD
+    billing: one-time
+    features:
+      - Full REST API access (products, orders, customers, categories, manufacturers)
+      - Admin API with token-based authentication
+      - Webhook support for order/product/customer events
+      - Access to 13,000+ marketplace modules and themes
+      - Community forum support
+  - name: OpenCart Cloud (Managed Hosting)
+    description: >
+      A managed SaaS hosting option provided by OpenCart Limited for
+      merchants who prefer not to self-host. Includes the same API features
+      as the self-hosted edition.
+    url: https://www.opencart.com/index.php?route=cms/company
+    price: null
+    currency: USD
+    billing: monthly
+    features:
+      - Fully managed hosting
+      - Automatic updates
+      - All core API features included
+      - Priority support
+notes: >
+  The OpenCart REST API is built into the platform and does not require any
+  paid license. Third-party REST API extensions (e.g., opencart-api.com)
+  may carry a one-time license fee for additional endpoints and features
+  beyond the built-in API.
