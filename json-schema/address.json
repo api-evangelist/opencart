@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/opencart/main/json-schema/address.json",
+  "title": "Address",
+  "description": "A postal address used for billing or shipping in OpenCart.",
+  "type": "object",
+  "properties": {
+    "address_id": {
+      "type": "integer",
+      "description": "Saved address identifier (0 for ad-hoc addresses)"
+    },
+    "firstname": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "lastname": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "company": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "address_1": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 128,
+      "description": "Primary street address line"
+    },
+    "address_2": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Secondary address line (suite, unit, etc.)"
+    },
+    "postcode": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 10
+    },
+    "city": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 128
+    },
+    "zone_id": {
+      "type": "integer",
+      "description": "State/province/region identifier"
+    },
+    "zone": {
+      "type": "string",
+      "description": "State/province/region name"
+    },
+    "zone_code": {
+      "type": "string",
+      "description": "ISO zone code (e.g. CA, NY)"
+    },
+    "country_id": {
+      "type": "integer",
+      "description": "Country identifier"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country name"
+    },
+    "iso_code_2": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2,
+      "description": "ISO 3166-1 alpha-2 country code"
+    },
+    "iso_code_3": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3,
+      "description": "ISO 3166-1 alpha-3 country code"
+    },
+    "address_format": {
+      "type": "string",
+      "description": "Country-specific address format template"
+    },
+    "custom_field": {
+      "type": "object",
+      "description": "Store-configured custom address fields",
+      "additionalProperties": true
+    }
+  },
+  "required": ["firstname", "lastname", "address_1", "city", "country_id", "country"]
+}

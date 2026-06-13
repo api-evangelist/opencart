@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/opencart/main/json-schema/cart-product.json",
+  "title": "CartProduct",
+  "description": "A product entry within the OpenCart shopping cart session.",
+  "type": "object",
+  "properties": {
+    "cart_id": {
+      "type": "string",
+      "description": "Unique identifier for the cart line item"
+    },
+    "product_id": {
+      "type": "integer",
+      "description": "OpenCart product identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "model": {
+      "type": "string",
+      "description": "Product model/SKU"
+    },
+    "option": {
+      "type": "array",
+      "description": "Selected product options",
+      "items": {
+        "type": "object",
+        "properties": {
+          "product_option_id": { "type": "integer" },
+          "product_option_value_id": { "type": "integer" },
+          "name": { "type": "string" },
+          "value": { "type": "string" },
+          "type": { "type": "string" }
+        }
+      }
+    },
+    "subscription_plan_id": {
+      "type": ["integer", "null"],
+      "description": "Associated subscription plan, if any"
+    },
+    "subscription": {
+      "type": "string",
+      "description": "Formatted subscription description text"
+    },
+    "quantity": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "price": {
+      "type": "number",
+      "description": "Unit price (after options and discounts)"
+    },
+    "total": {
+      "type": "number",
+      "description": "Line total (price × quantity)"
+    }
+  },
+  "required": ["cart_id", "product_id", "name", "quantity", "price", "total"]
+}

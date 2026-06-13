@@ -45,6 +45,8 @@ apis:
         url: https://docs.opencart.com/developer/
       - type: GitHubRepository
         url: https://github.com/opencart/opencart
+      - type: OpenAPI
+        url: openapi/opencart-rest-api.yml
 common:
   - type: Website
     url: https://www.opencart.com

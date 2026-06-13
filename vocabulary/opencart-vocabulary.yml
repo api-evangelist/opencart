@@ -1,0 +1,71 @@
+title: OpenCart API Vocabulary
+description: Canonical terms and definitions used across the OpenCart REST API.
+terms:
+  - term: api_token
+    definition: >
+      A session token issued by the /login endpoint after successful
+      authentication. Must be passed as a query parameter or POST field on all
+      subsequent API requests. The token is bound to the PHP session on the
+      server and expires when the session expires.
+
+  - term: cart_id
+    definition: >
+      A unique string identifier for a specific line item in the shopping cart.
+      Combines the product_id and selected options to distinguish different
+      configurations of the same product.
+
+  - term: product_id
+    definition: >
+      The numeric identifier of a product as stored in the OpenCart database.
+      Used to reference products when adding them to the cart.
+
+  - term: customer_group_id
+    definition: >
+      Identifier for the customer group, which controls pricing tiers, tax
+      classes, and other group-specific settings applied to the customer.
+
+  - term: subscription_plan_id
+    definition: >
+      Identifier for a recurring billing plan attached to a product. When
+      provided during add-to-cart, the product is purchased under the defined
+      subscription cycle (trial period, billing interval, duration).
+
+  - term: zone_id
+    definition: >
+      Identifier for a state, province, or administrative region as defined
+      in the OpenCart geo-zone tables. Required for addresses in countries
+      that have zones configured.
+
+  - term: country_id
+    definition: >
+      Numeric identifier for a country as stored in the OpenCart country table.
+      For example, 223 represents the United States.
+
+  - term: tax_class_id
+    definition: >
+      Identifier for a tax class applied to a product or shipping rate.
+      Determines which tax rules (rates, geo-zones) apply when calculating
+      taxes at checkout.
+
+  - term: order_status_id
+    definition: >
+      Numeric status of an order. Common values: 1 = Pending, 2 = Processing,
+      3 = Shipped, 5 = Complete, 7 = Cancelled. Configurable in the admin panel.
+
+  - term: affiliate_id
+    definition: >
+      Identifier for an affiliate partner. When set on a session, the
+      affiliate earns a commission on the resulting order based on the
+      configured commission rate.
+
+  - term: ip_allowlist
+    definition: >
+      A list of IP addresses configured in Admin > System > Users > API that
+      are permitted to call the API. Requests from unlisted IPs are rejected
+      regardless of credential validity.
+
+  - term: call
+    definition: >
+      A query parameter used by the /order and /subscription dispatcher
+      endpoints to route the request to the appropriate sub-operation
+      (e.g. confirm, history_add, cart, product_add).

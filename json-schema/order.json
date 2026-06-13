@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/opencart/main/json-schema/order.json",
+  "title": "Order",
+  "description": "An OpenCart order confirmation response object.",
+  "type": "object",
+  "properties": {
+    "order_id": {
+      "type": "integer",
+      "description": "Unique identifier of the confirmed order"
+    },
+    "success": {
+      "type": "string",
+      "description": "Localised confirmation message"
+    },
+    "points": {
+      "type": "integer",
+      "description": "Reward points earned on this order (if reward points extension is active)"
+    },
+    "commission": {
+      "type": "number",
+      "description": "Affiliate commission amount (if an affiliate was set)"
+    }
+  },
+  "required": ["order_id", "success"]
+}
