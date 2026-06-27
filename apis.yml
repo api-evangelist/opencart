@@ -41,7 +41,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.opencart.com/admin-interface/system/users/api
-      - type: DeveloperDocumentation
+      - type: Documentation
         url: https://docs.opencart.com/developer/
       - type: GitHubRepository
         url: https://github.com/opencart/opencart
@@ -62,7 +62,7 @@ common:
     url: https://www.opencart.com/index.php?route=cms/download
   - type: X
     url: https://twitter.com/opencart
-  - type: Forum
+  - type: Forums
     url: https://forum.opencart.com
   - type: Marketplace
     url: https://www.opencart.com/index.php?route=marketplace/extension
