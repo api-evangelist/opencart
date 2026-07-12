@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/opencart-rest-api.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: apiToken
+  type: apiKey
+  in: query
+  parameter: api_token
+  description: Session token obtained from the /login endpoint
+  sources:
+  - openapi/opencart-rest-api.yml

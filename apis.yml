@@ -48,6 +48,10 @@ apis:
       - type: OpenAPI
         url: openapi/opencart-rest-api.yml
 common:
+  - type: DomainSecurity
+    url: security/opencart-domain-security.yml
+  - type: Authentication
+    url: authentication/opencart-authentication.yml
   - type: Website
     url: https://www.opencart.com
   - type: Documentation
