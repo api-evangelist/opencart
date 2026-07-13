@@ -2,13 +2,14 @@
   "repo": "opencart",
   "feeds": [
     {
-      "source": "https://www.opencart.com/blog",
-      "feed_url": "",
-      "saved": 6,
-      "method": "agent-scrape"
+      "source": "https://www.linkedin.com/company/5224021/",
+      "feed_url": "https://www.linkedin.com/company/5224021/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 6,
-  "fetched": "2026-06-27T12:57:40Z",
-  "agent_pulled": "2026-06-27"
+  "fetched": "2026-07-11T11:50:51Z",
+  "agent_pulled": "2026-07-04"
 }
