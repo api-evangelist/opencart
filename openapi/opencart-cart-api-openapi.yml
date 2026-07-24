@@ -1,0 +1,263 @@
+openapi: 3.0.3
+info:
+  title: OpenCart REST Affiliates Cart API
+  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
+
+    '
+  version: '4.0'
+  contact:
+    name: OpenCart Developer Documentation
+    url: https://docs.opencart.com/developer/
+  license:
+    name: GNU GPL v3
+    url: https://github.com/opencart/opencart/blob/master/LICENSE.md
+servers:
+- url: https://yourstore.com/index.php?route=api
+  description: OpenCart store API base URL (replace yourstore.com with your store domain)
+security:
+- apiToken: []
+tags:
+- name: Cart
+  description: Shopping cart product management
+paths:
+  /cart:
+    post:
+      operationId: addProductsToCart
+      summary: Add multiple products to cart
+      description: 'Adds one or more products to the shopping cart. Each product entry may include required options and an optional subscription plan.
+
+        '
+      tags:
+      - Cart
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                api_token:
+                  type: string
+                  description: Session token from login
+                product:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CartProductInput'
+      responses:
+        '200':
+          description: Products added or validation errors returned
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/SuccessResponse'
+                - $ref: '#/components/schemas/CartErrorResponse'
+  /cart/addProduct:
+    post:
+      operationId: addSingleProductToCart
+      summary: Add a single product to cart
+      description: 'Adds a single product to the shopping cart with full option and subscription plan validation.
+
+        '
+      tags:
+      - Cart
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - product_id
+              properties:
+                api_token:
+                  type: string
+                product_id:
+                  type: integer
+                  description: Product identifier
+                  example: 28
+                quantity:
+                  type: integer
+                  description: Quantity to add (default 1)
+                  default: 1
+                  example: 2
+                option:
+                  type: object
+                  description: Map of option_id to option value(s)
+                  additionalProperties:
+                    oneOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+                subscription_plan_id:
+                  type: integer
+                  description: Subscription plan ID (if adding as a subscription)
+      responses:
+        '200':
+          description: Product added or validation errors
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/SuccessResponse'
+                - $ref: '#/components/schemas/CartErrorResponse'
+  /cart/getProducts:
+    get:
+      operationId: getCartProducts
+      summary: Retrieve cart products
+      description: Returns all products currently in the shopping cart session.
+      tags:
+      - Cart
+      parameters:
+      - $ref: '#/components/parameters/ApiToken'
+      responses:
+        '200':
+          description: Cart product list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CartProduct'
+  /cart/getTotals:
+    get:
+      operationId: getCartTotals
+      summary: Retrieve cart totals
+      description: Returns formatted cart totals including subtotal, shipping, taxes, and grand total.
+      tags:
+      - Cart
+      parameters:
+      - $ref: '#/components/parameters/ApiToken'
+      responses:
+        '200':
+          description: Cart totals
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totals:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CartTotal'
+components:
+  parameters:
+    ApiToken:
+      name: api_token
+      in: query
+      required: true
+      schema:
+        type: string
+      description: Session token from the login endpoint
+  schemas:
+    CartErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            warning:
+              type: string
+            product:
+              type: string
+            option:
+              type: string
+            subscription:
+              type: string
+    CartProductInput:
+      type: object
+      required:
+      - product_id
+      - quantity
+      properties:
+        product_id:
+          type: integer
+          example: 28
+        quantity:
+          type: integer
+          default: 1
+          example: 1
+        option:
+          type: object
+          additionalProperties:
+            oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+        subscription_plan_id:
+          type: integer
+    CartTotal:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Display label (e.g. Sub-Total, Flat Shipping Rate, Tax, Total)
+          example: Sub-Total
+        text:
+          type: string
+          description: Formatted currency value
+          example: $100.00
+        value:
+          type: number
+          format: float
+          example: 100.0
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: string
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
+    CartProduct:
+      type: object
+      properties:
+        cart_id:
+          type: string
+        product_id:
+          type: integer
+        name:
+          type: string
+        model:
+          type: string
+        option:
+          type: array
+          items:
+            type: object
+            properties:
+              product_option_id:
+                type: integer
+              product_option_value_id:
+                type: integer
+              name:
+                type: string
+              value:
+                type: string
+              type:
+                type: string
+        subscription_plan_id:
+          type: integer
+        subscription:
+          type: string
+          description: Formatted subscription description
+        quantity:
+          type: integer
+        price:
+          type: number
+          format: float
+        total:
+          type: number
+          format: float
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: query
+      name: api_token
+      description: Session token obtained from the /login endpoint
+externalDocs:
+  description: OpenCart Admin API Documentation
+  url: https://docs.opencart.com/admin-interface/system/users/api

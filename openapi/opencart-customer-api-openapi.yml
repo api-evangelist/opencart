@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+  title: OpenCart REST Affiliates Customer API
+  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
+
+    '
+  version: '4.0'
+  contact:
+    name: OpenCart Developer Documentation
+    url: https://docs.opencart.com/developer/
+  license:
+    name: GNU GPL v3
+    url: https://github.com/opencart/opencart/blob/master/LICENSE.md
+servers:
+- url: https://yourstore.com/index.php?route=api
+  description: OpenCart store API base URL (replace yourstore.com with your store domain)
+security:
+- apiToken: []
+tags:
+- name: Customer
+  description: Customer session and profile management
+paths:
+  /customer:
+    post:
+      operationId: setCustomer
+      summary: Set customer for the current session
+      description: 'Associates a customer with the current API session. Validates customer existence, group, name, email, telephone, and custom fields.
+
+        '
+      tags:
+      - Customer
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomerInput'
+      responses:
+        '200':
+          description: Customer set or validation errors
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/SuccessResponse'
+                - $ref: '#/components/schemas/CustomerErrorResponse'
+components:
+  schemas:
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: string
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
+    CustomerErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            warning:
+              type: string
+            customer_group:
+              type: string
+            firstname:
+              type: string
+            lastname:
+              type: string
+            email:
+              type: string
+            telephone:
+              type: string
+    CustomerInput:
+      type: object
+      required:
+      - customer_id
+      - customer_group_id
+      - firstname
+      - lastname
+      - email
+      properties:
+        api_token:
+          type: string
+        customer_id:
+          type: integer
+          example: 1
+        customer_group_id:
+          type: integer
+          example: 1
+        firstname:
+          type: string
+          maxLength: 32
+          example: John
+        lastname:
+          type: string
+          maxLength: 32
+          example: Doe
+        email:
+          type: string
+          format: email
+          example: john.doe@example.com
+        telephone:
+          type: string
+          minLength: 3
+          maxLength: 32
+          example: +1 555-0100
+        custom_field:
+          type: object
+          additionalProperties: true
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: query
+      name: api_token
+      description: Session token obtained from the /login endpoint
+externalDocs:
+  description: OpenCart Admin API Documentation
+  url: https://docs.opencart.com/admin-interface/system/users/api

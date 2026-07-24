@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: OpenCart REST Affiliates Payment Methods API
+  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
+
+    '
+  version: '4.0'
+  contact:
+    name: OpenCart Developer Documentation
+    url: https://docs.opencart.com/developer/
+  license:
+    name: GNU GPL v3
+    url: https://github.com/opencart/opencart/blob/master/LICENSE.md
+servers:
+- url: https://yourstore.com/index.php?route=api
+  description: OpenCart store API base URL (replace yourstore.com with your store domain)
+security:
+- apiToken: []
+tags:
+- name: Payment Methods
+  description: Available payment method retrieval and selection
+paths:
+  /payment_method:
+    post:
+      operationId: setPaymentMethod
+      summary: Set the payment method for the order
+      description: 'Stores the selected payment method in the session. Requires customer, cart products, and if applicable, a payment address.
+
+        '
+      tags:
+      - Payment Methods
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - name
+              - code
+              properties:
+                api_token:
+                  type: string
+                name:
+                  type: string
+                  description: Human-readable name of the payment method
+                  example: Bank Transfer
+                code:
+                  type: string
+                  description: Machine code of the payment method
+                  example: bank_transfer
+      responses:
+        '200':
+          description: Payment method set or error
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/SuccessResponse'
+                - $ref: '#/components/schemas/ErrorResponse'
+  /payment_method/getPaymentMethods:
+    get:
+      operationId: getPaymentMethods
+      summary: Retrieve available payment methods
+      description: 'Returns the list of available payment methods for the current session. Requires customer data, cart products, and if shipping is required, a shipping address and method.
+
+        '
+      tags:
+      - Payment Methods
+      parameters:
+      - $ref: '#/components/parameters/ApiToken'
+      responses:
+        '200':
+          description: Available payment methods or error
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - type: object
+                  properties:
+                    payment_methods:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/PaymentMethod'
+                - $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: string
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
+    PaymentMethod:
+      type: object
+      properties:
+        code:
+          type: string
+          example: bank_transfer
+        name:
+          type: string
+          example: Bank Transfer
+        sort_order:
+          type: integer
+          example: 1
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Localised error message
+          example: 'Warning: Permission Denied!'
+  parameters:
+    ApiToken:
+      name: api_token
+      in: query
+      required: true
+      schema:
+        type: string
+      description: Session token from the login endpoint
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: query
+      name: api_token
+      description: Session token obtained from the /login endpoint
+externalDocs:
+  description: OpenCart Admin API Documentation
+  url: https://docs.opencart.com/admin-interface/system/users/api

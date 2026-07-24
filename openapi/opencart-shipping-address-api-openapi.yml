@@ -1,0 +1,172 @@
+openapi: 3.0.3
+info:
+  title: OpenCart REST Affiliates Shipping Address API
+  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
+
+    '
+  version: '4.0'
+  contact:
+    name: OpenCart Developer Documentation
+    url: https://docs.opencart.com/developer/
+  license:
+    name: GNU GPL v3
+    url: https://github.com/opencart/opencart/blob/master/LICENSE.md
+servers:
+- url: https://yourstore.com/index.php?route=api
+  description: OpenCart store API base URL (replace yourstore.com with your store domain)
+security:
+- apiToken: []
+tags:
+- name: Shipping Address
+  description: Shipping address management
+paths:
+  /shipping_address:
+    post:
+      operationId: setShippingAddress
+      summary: Set shipping (delivery) address
+      description: 'Validates and stores the shipping address for the current session. Required when the cart contains shippable items.
+
+        '
+      tags:
+      - Shipping Address
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ShippingAddressInput'
+      responses:
+        '200':
+          description: Shipping address set or validation errors
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/ShippingAddressResponse'
+                - $ref: '#/components/schemas/AddressErrorResponse'
+components:
+  schemas:
+    ShippingAddressResponse:
+      type: object
+      properties:
+        success:
+          type: string
+        shipping_address:
+          $ref: '#/components/schemas/Address'
+    ShippingAddressInput:
+      type: object
+      required:
+      - shipping_firstname
+      - shipping_lastname
+      - shipping_address_1
+      - shipping_city
+      - shipping_country_id
+      - shipping_zone_id
+      properties:
+        api_token:
+          type: string
+        shipping_firstname:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: John
+        shipping_lastname:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: Doe
+        shipping_company:
+          type: string
+        shipping_address_1:
+          type: string
+          minLength: 3
+          maxLength: 128
+          example: 456 Elm Street
+        shipping_address_2:
+          type: string
+        shipping_postcode:
+          type: string
+          minLength: 2
+          maxLength: 10
+          example: '90210'
+        shipping_city:
+          type: string
+          minLength: 2
+          maxLength: 128
+          example: Los Angeles
+        shipping_country_id:
+          type: integer
+          example: 223
+        shipping_zone_id:
+          type: integer
+          example: 3635
+        shipping_custom_field:
+          type: object
+          additionalProperties: true
+    Address:
+      type: object
+      properties:
+        address_id:
+          type: integer
+        firstname:
+          type: string
+        lastname:
+          type: string
+        company:
+          type: string
+        address_1:
+          type: string
+        address_2:
+          type: string
+        postcode:
+          type: string
+        city:
+          type: string
+        zone_id:
+          type: integer
+        zone:
+          type: string
+        zone_code:
+          type: string
+        country_id:
+          type: integer
+        country:
+          type: string
+        iso_code_2:
+          type: string
+        iso_code_3:
+          type: string
+        address_format:
+          type: string
+        custom_field:
+          type: object
+          additionalProperties: true
+    AddressErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            firstname:
+              type: string
+            lastname:
+              type: string
+            address_1:
+              type: string
+            city:
+              type: string
+            postcode:
+              type: string
+            country:
+              type: string
+            zone:
+              type: string
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: query
+      name: api_token
+      description: Session token obtained from the /login endpoint
+externalDocs:
+  description: OpenCart Admin API Documentation
+  url: https://docs.opencart.com/admin-interface/system/users/api

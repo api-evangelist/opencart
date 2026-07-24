@@ -1,0 +1,97 @@
+openapi: 3.0.3
+info:
+  title: OpenCart REST Affiliates Subscriptions API
+  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
+
+    '
+  version: '4.0'
+  contact:
+    name: OpenCart Developer Documentation
+    url: https://docs.opencart.com/developer/
+  license:
+    name: GNU GPL v3
+    url: https://github.com/opencart/opencart/blob/master/LICENSE.md
+servers:
+- url: https://yourstore.com/index.php?route=api
+  description: OpenCart store API base URL (replace yourstore.com with your store domain)
+security:
+- apiToken: []
+tags:
+- name: Subscriptions
+  description: Subscription order management
+paths:
+  /subscription:
+    post:
+      operationId: manageSubscription
+      summary: Manage subscription order operations via call parameter
+      description: 'Dispatches subscription operations based on the `call` query parameter. Supports cart retrieval, product addition, shipping/payment method selection, order confirmation, and history updates for subscription orders.
+
+        '
+      tags:
+      - Subscriptions
+      parameters:
+      - name: call
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - cart
+          - product_add
+          - shipping_methods
+          - payment_methods
+          - confirm
+          - history_add
+        description: The sub-operation to perform
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                api_token:
+                  type: string
+                customer_id:
+                  type: integer
+                  description: Customer identifier
+                payment_address_id:
+                  type: integer
+                  description: Saved address ID for billing
+                shipping_address_id:
+                  type: integer
+                  description: Saved address ID for delivery
+                subscription_id:
+                  type: integer
+                  description: Existing subscription ID
+                subscription_plan_id:
+                  type: integer
+                  description: Subscription plan ID
+                subscription_status_id:
+                  type: integer
+                  description: Subscription status (for history_add)
+                comment:
+                  type: string
+                notify:
+                  type: boolean
+      responses:
+        '200':
+          description: Operation result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                  error:
+                    type: string
+components:
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: query
+      name: api_token
+      description: Session token obtained from the /login endpoint
+externalDocs:
+  description: OpenCart Admin API Documentation
+  url: https://docs.opencart.com/admin-interface/system/users/api

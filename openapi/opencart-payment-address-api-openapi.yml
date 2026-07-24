@@ -1,0 +1,174 @@
+openapi: 3.0.3
+info:
+  title: OpenCart REST Affiliates Payment Address API
+  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
+
+    '
+  version: '4.0'
+  contact:
+    name: OpenCart Developer Documentation
+    url: https://docs.opencart.com/developer/
+  license:
+    name: GNU GPL v3
+    url: https://github.com/opencart/opencart/blob/master/LICENSE.md
+servers:
+- url: https://yourstore.com/index.php?route=api
+  description: OpenCart store API base URL (replace yourstore.com with your store domain)
+security:
+- apiToken: []
+tags:
+- name: Payment Address
+  description: Billing address management
+paths:
+  /payment_address:
+    post:
+      operationId: setPaymentAddress
+      summary: Set payment (billing) address
+      description: 'Validates and stores the billing address for the current session. Requires address fields including name, street, city, country, and zone.
+
+        '
+      tags:
+      - Payment Address
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PaymentAddressInput'
+      responses:
+        '200':
+          description: Payment address set or validation errors
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/SuccessResponse'
+                - $ref: '#/components/schemas/AddressErrorResponse'
+  /payment_address/setAddress:
+    post:
+      operationId: setPaymentAddressById
+      summary: Set payment address from saved customer address
+      description: Selects an existing saved customer address as the billing address.
+      tags:
+      - Payment Address
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - payment_address_id
+              properties:
+                api_token:
+                  type: string
+                payment_address_id:
+                  type: integer
+                  description: ID of the saved customer address to use for billing
+                  example: 5
+      responses:
+        '200':
+          description: Payment address set or error
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/SuccessResponse'
+                - $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: string
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
+    AddressErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            firstname:
+              type: string
+            lastname:
+              type: string
+            address_1:
+              type: string
+            city:
+              type: string
+            postcode:
+              type: string
+            country:
+              type: string
+            zone:
+              type: string
+    PaymentAddressInput:
+      type: object
+      required:
+      - payment_firstname
+      - payment_lastname
+      - payment_address_1
+      - payment_city
+      - payment_country_id
+      - payment_zone_id
+      properties:
+        api_token:
+          type: string
+        payment_firstname:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: John
+        payment_lastname:
+          type: string
+          minLength: 1
+          maxLength: 32
+          example: Doe
+        payment_company:
+          type: string
+          example: ACME Corp
+        payment_address_1:
+          type: string
+          minLength: 3
+          maxLength: 128
+          example: 123 Main Street
+        payment_address_2:
+          type: string
+          example: Suite 100
+        payment_postcode:
+          type: string
+          minLength: 2
+          maxLength: 10
+          example: '90210'
+        payment_city:
+          type: string
+          minLength: 2
+          maxLength: 128
+          example: Los Angeles
+        payment_zone_id:
+          type: integer
+          example: 3635
+        payment_country_id:
+          type: integer
+          example: 223
+        payment_custom_field:
+          type: object
+          additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Localised error message
+          example: 'Warning: Permission Denied!'
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: query
+      name: api_token
+      description: Session token obtained from the /login endpoint
+externalDocs:
+  description: OpenCart Admin API Documentation
+  url: https://docs.opencart.com/admin-interface/system/users/api
