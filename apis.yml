@@ -6,7 +6,20 @@ description: >
   configuration in self-hosted environments. Built on PHP and MySQL,
   OpenCart powers over 470,000 online stores worldwide and offers token-based
   API authentication with IP-allowlist security controls.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/opencart.png
 url: https://raw.githubusercontent.com/api-evangelist/opencart/refs/heads/main/apis.yml
 created: 2026-06-13
 modified: 2026-06-13
@@ -21,32 +34,166 @@ tags:
   - Customers
   - Categories
 apis:
-  - name: OpenCart REST API
-    description: >
-      The OpenCart REST API enables external applications to communicate
-      with an OpenCart store for managing products, categories, orders,
-      customers, manufacturers, and returns. Authentication uses API
-      username/key credentials with IP-allowlist enforcement. Webhooks
-      are supported for order creation, order updates, product sync,
-      and customer registration events.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.opencart.com/admin-interface/system/users/api
-    baseURL: https://yourstore.com/api
-    tags:
-      - eCommerce
-      - Products
-      - Orders
-      - Customers
-      - Categories
-    properties:
-      - type: Documentation
-        url: https://docs.opencart.com/admin-interface/system/users/api
-      - type: Documentation
-        url: https://docs.opencart.com/developer/
-      - type: GitHubRepository
-        url: https://github.com/opencart/opencart
-      - type: OpenAPI
-        url: openapi/opencart-rest-api.yml
+- aid: opencart:opencart-affiliates-api
+  name: OpenCart Affiliates API
+  description: Affiliate session management
+  humanURL: https://docs.opencart.com/admin-interface/system/users/api
+  baseURL: https://yourstore.com/api
+  tags:
+  - Affiliates
+  properties:
+  - type: OpenAPI
+    url: openapi/opencart-affiliates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opencart.com/admin-interface/system/users/api
+  - type: Documentation
+    url: https://docs.opencart.com/developer/
+  - type: GitHubRepository
+    url: https://github.com/opencart/opencart
+- aid: opencart:opencart-authentication-api
+  name: OpenCart Authentication API
+  description: API login and session token management
+  humanURL: https://docs.opencart.com/admin-interface/system/users/api
+  baseURL: https://yourstore.com/api
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/opencart-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opencart.com/admin-interface/system/users/api
+  - type: Documentation
+    url: https://docs.opencart.com/developer/
+  - type: GitHubRepository
+    url: https://github.com/opencart/opencart
+- aid: opencart:opencart-cart-api
+  name: OpenCart Cart API
+  description: Shopping cart product management
+  humanURL: https://docs.opencart.com/admin-interface/system/users/api
+  baseURL: https://yourstore.com/api
+  tags:
+  - Cart
+  properties:
+  - type: OpenAPI
+    url: openapi/opencart-cart-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opencart.com/admin-interface/system/users/api
+  - type: Documentation
+    url: https://docs.opencart.com/developer/
+  - type: GitHubRepository
+    url: https://github.com/opencart/opencart
+- aid: opencart:opencart-customer-api
+  name: OpenCart Customer API
+  description: Customer session and profile management
+  humanURL: https://docs.opencart.com/admin-interface/system/users/api
+  baseURL: https://yourstore.com/api
+  tags:
+  - Customer
+  properties:
+  - type: OpenAPI
+    url: openapi/opencart-customer-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opencart.com/admin-interface/system/users/api
+  - type: Documentation
+    url: https://docs.opencart.com/developer/
+  - type: GitHubRepository
+    url: https://github.com/opencart/opencart
+- aid: opencart:opencart-orders-api
+  name: OpenCart Orders API
+  description: Order creation, confirmation, and history
+  humanURL: https://docs.opencart.com/admin-interface/system/users/api
+  baseURL: https://yourstore.com/api
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/opencart-orders-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opencart.com/admin-interface/system/users/api
+  - type: Documentation
+    url: https://docs.opencart.com/developer/
+  - type: GitHubRepository
+    url: https://github.com/opencart/opencart
+- aid: opencart:opencart-payment-address-api
+  name: OpenCart Payment Address API
+  description: Billing address management
+  humanURL: https://docs.opencart.com/admin-interface/system/users/api
+  baseURL: https://yourstore.com/api
+  tags:
+  - Payment Address
+  properties:
+  - type: OpenAPI
+    url: openapi/opencart-payment-address-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opencart.com/admin-interface/system/users/api
+  - type: Documentation
+    url: https://docs.opencart.com/developer/
+  - type: GitHubRepository
+    url: https://github.com/opencart/opencart
+- aid: opencart:opencart-payment-methods-api
+  name: OpenCart Payment Methods API
+  description: Available payment method retrieval and selection
+  humanURL: https://docs.opencart.com/admin-interface/system/users/api
+  baseURL: https://yourstore.com/api
+  tags:
+  - Payment Methods
+  properties:
+  - type: OpenAPI
+    url: openapi/opencart-payment-methods-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opencart.com/admin-interface/system/users/api
+  - type: Documentation
+    url: https://docs.opencart.com/developer/
+  - type: GitHubRepository
+    url: https://github.com/opencart/opencart
+- aid: opencart:opencart-shipping-address-api
+  name: OpenCart Shipping Address API
+  description: Shipping address management
+  humanURL: https://docs.opencart.com/admin-interface/system/users/api
+  baseURL: https://yourstore.com/api
+  tags:
+  - Shipping Address
+  properties:
+  - type: OpenAPI
+    url: openapi/opencart-shipping-address-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opencart.com/admin-interface/system/users/api
+  - type: Documentation
+    url: https://docs.opencart.com/developer/
+  - type: GitHubRepository
+    url: https://github.com/opencart/opencart
+- aid: opencart:opencart-shipping-methods-api
+  name: OpenCart Shipping Methods API
+  description: Available shipping method retrieval and selection
+  humanURL: https://docs.opencart.com/admin-interface/system/users/api
+  baseURL: https://yourstore.com/api
+  tags:
+  - Shipping Methods
+  properties:
+  - type: OpenAPI
+    url: openapi/opencart-shipping-methods-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opencart.com/admin-interface/system/users/api
+  - type: Documentation
+    url: https://docs.opencart.com/developer/
+  - type: GitHubRepository
+    url: https://github.com/opencart/opencart
+- aid: opencart:opencart-subscriptions-api
+  name: OpenCart Subscriptions API
+  description: Subscription order management
+  humanURL: https://docs.opencart.com/admin-interface/system/users/api
+  baseURL: https://yourstore.com/api
+  tags:
+  - Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/opencart-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opencart.com/admin-interface/system/users/api
+  - type: Documentation
+    url: https://docs.opencart.com/developer/
+  - type: GitHubRepository
+    url: https://github.com/opencart/opencart
 common:
   - type: AgenticAccess
     url: agentic-access/opencart-agentic-access.yml
