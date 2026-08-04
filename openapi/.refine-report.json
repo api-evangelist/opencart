@@ -1,0 +1,32 @@
+{
+  "provider": "opencart",
+  "sources": [
+    "opencart-affiliates-api-openapi.yml",
+    "opencart-authentication-api-openapi.yml",
+    "opencart-cart-api-openapi.yml",
+    "opencart-customer-api-openapi.yml",
+    "opencart-orders-api-openapi.yml",
+    "opencart-payment-address-api-openapi.yml",
+    "opencart-payment-methods-api-openapi.yml",
+    "opencart-shipping-address-api-openapi.yml",
+    "opencart-shipping-methods-api-openapi.yml",
+    "opencart-subscriptions-api-openapi.yml"
+  ],
+  "outputs": [
+    "opencart-affiliates-api-openapi.yml",
+    "opencart-authentication-api-openapi.yml",
+    "opencart-cart-api-openapi.yml",
+    "opencart-customer-api-openapi.yml",
+    "opencart-orders-api-openapi.yml",
+    "opencart-payment-address-api-openapi.yml",
+    "opencart-payment-methods-api-openapi.yml",
+    "opencart-shipping-address-api-openapi.yml",
+    "opencart-shipping-methods-api-openapi.yml",
+    "opencart-subscriptions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
