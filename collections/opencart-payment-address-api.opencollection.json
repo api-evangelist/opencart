@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenCart REST Affiliates Payment Address API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment Address",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Set payment (billing) address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://yourstore.com/index.php?route=api/payment_address",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Validates and stores the billing address for the current session. Requires address fields including name, street, city, country, and zone.\n"
+        },
+        {
+          "info": {
+            "name": "Set payment address from saved customer address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://yourstore.com/index.php?route=api/payment_address/setAddress",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "api_token",
+                  "value": ""
+                },
+                {
+                  "name": "payment_address_id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Selects an existing saved customer address as the billing address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

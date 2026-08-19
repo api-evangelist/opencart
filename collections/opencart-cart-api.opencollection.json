@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenCart REST Affiliates Cart API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cart",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add multiple products to cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://yourstore.com/index.php?route=api/cart",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "api_token",
+                  "value": ""
+                },
+                {
+                  "name": "product",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Adds one or more products to the shopping cart. Each product entry may include required options and an optional subscription plan.\n"
+        },
+        {
+          "info": {
+            "name": "Add a single product to cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://yourstore.com/index.php?route=api/cart/addProduct",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "api_token",
+                  "value": ""
+                },
+                {
+                  "name": "product_id",
+                  "value": ""
+                },
+                {
+                  "name": "quantity",
+                  "value": ""
+                },
+                {
+                  "name": "option",
+                  "value": ""
+                },
+                {
+                  "name": "subscription_plan_id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Adds a single product to the shopping cart with full option and subscription plan validation.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve cart products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://yourstore.com/index.php?route=api/cart/getProducts",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Session token from the login endpoint"
+              }
+            ]
+          },
+          "docs": "Returns all products currently in the shopping cart session."
+        },
+        {
+          "info": {
+            "name": "Retrieve cart totals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://yourstore.com/index.php?route=api/cart/getTotals",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Session token from the login endpoint"
+              }
+            ]
+          },
+          "docs": "Returns formatted cart totals including subtotal, shipping, taxes, and grand total."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenCart REST Affiliates Subscriptions API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Manage subscription order operations via call parameter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://yourstore.com/index.php?route=api/subscription",
+            "params": [
+              {
+                "name": "call",
+                "value": "",
+                "type": "query",
+                "description": "The sub-operation to perform"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "api_token",
+                  "value": ""
+                },
+                {
+                  "name": "customer_id",
+                  "value": ""
+                },
+                {
+                  "name": "payment_address_id",
+                  "value": ""
+                },
+                {
+                  "name": "shipping_address_id",
+                  "value": ""
+                },
+                {
+                  "name": "subscription_id",
+                  "value": ""
+                },
+                {
+                  "name": "subscription_plan_id",
+                  "value": ""
+                },
+                {
+                  "name": "subscription_status_id",
+                  "value": ""
+                },
+                {
+                  "name": "comment",
+                  "value": ""
+                },
+                {
+                  "name": "notify",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Dispatches subscription operations based on the `call` query parameter. Supports cart retrieval, product addition, shipping/payment method selection, order confirmation, and history updates for subscription orders.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

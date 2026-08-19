@@ -1,0 +1,162 @@
+{
+  "item": [
+    {
+      "id": "6df13c44-74bd-452b-b4c6-29684d8e5029",
+      "name": "Affiliates",
+      "description": {
+        "content": "Affiliate session management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4d083bba-e7b0-452c-80a4-d269d8e61a15",
+          "name": "Set affiliate for the current session",
+          "request": {
+            "name": "Set affiliate for the current session",
+            "description": {
+              "content": "Associates an affiliate with the current API session. Validates that the affiliate exists and that the order subtotal is valid.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "affiliate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "affiliate_id",
+                  "value": "<integer>",
+                  "description": "Affiliate ID (default 0 if not provided)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f5485213-dff6-40be-9d63-443f4bfeea32",
+              "name": "Affiliate set or error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "affiliate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Affiliate ID (default 0 if not provided)",
+                        "type": "text/plain"
+                      },
+                      "key": "affiliate_id",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": \"Success: You have modified your shopping cart!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://yourstore.com/index.php?route=api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "603560f5-6355-4d9e-b0c1-18502951e9ba",
+    "name": "OpenCart REST Affiliates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.\n\n\nContact Support:\n Name: OpenCart Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

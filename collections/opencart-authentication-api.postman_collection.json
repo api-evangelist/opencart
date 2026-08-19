@@ -1,0 +1,229 @@
+{
+  "item": [
+    {
+      "id": "b5f70d2a-cb2d-44ed-877c-69320208d954",
+      "name": "Authentication",
+      "description": {
+        "content": "API login and session token management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "be6f28d7-e3c2-4e9c-ba0d-281a089e2d08",
+          "name": "Authenticate and obtain API session token",
+          "request": {
+            "name": "Authenticate and obtain API session token",
+            "description": {
+              "content": "Submits API username and key credentials to authenticate. Returns a session api_token that must be passed as a query parameter or POST field on all subsequent requests. The calling IP address must be in the store's API IP allowlist.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) API username configured in Admin > System > Users > API"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) API key (64-character alphanumeric secret)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3673c4af-a98d-481c-b8db-3f7f1a673a12",
+              "name": "Successful authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API username configured in Admin > System > Users > API",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "Default"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key (64-character alphanumeric secret)",
+                        "type": "text/plain"
+                      },
+                      "key": "key",
+                      "value": "abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz12"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": \"Success: You have modified APIs!\",\n  \"api_token\": \"7a2f4e9c1d8b3f6a0e5c2d9b4f7a1e3c\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cad0af07-af76-4c45-bd39-c14886c560ff",
+              "name": "Authentication failed (bad credentials or IP not allowed)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API username configured in Admin > System > Users > API",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "Default"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key (64-character alphanumeric secret)",
+                        "type": "text/plain"
+                      },
+                      "key": "key",
+                      "value": "abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz12"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Warning: Permission Denied!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://yourstore.com/index.php?route=api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2ec1b489-f41c-4cec-b1a5-86218e9b3a16",
+    "name": "OpenCart REST Affiliates Authentication API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.\n\n\nContact Support:\n Name: OpenCart Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

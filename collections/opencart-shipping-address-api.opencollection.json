@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenCart REST Affiliates Shipping Address API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shipping Address",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Set shipping (delivery) address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://yourstore.com/index.php?route=api/shipping_address",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Validates and stores the shipping address for the current session. Required when the cart contains shippable items.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

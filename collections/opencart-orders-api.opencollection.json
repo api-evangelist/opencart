@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenCart REST Affiliates Orders API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Manage order operations via call parameter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://yourstore.com/index.php?route=api/order",
+            "params": [
+              {
+                "name": "call",
+                "value": "",
+                "type": "query",
+                "description": "The sub-operation to perform"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "api_token",
+                  "value": ""
+                },
+                {
+                  "name": "order_id",
+                  "value": ""
+                },
+                {
+                  "name": "order_status_id",
+                  "value": ""
+                },
+                {
+                  "name": "comment",
+                  "value": ""
+                },
+                {
+                  "name": "notify",
+                  "value": ""
+                },
+                {
+                  "name": "override",
+                  "value": ""
+                },
+                {
+                  "name": "affiliate_id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Dispatches order operations based on the `call` query parameter. Supports cart retrieval, product addition, address setting, shipping/payment method selection, order confirmation, and history updates.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

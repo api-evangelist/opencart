@@ -1,0 +1,265 @@
+{
+  "item": [
+    {
+      "id": "acff30df-e0bf-4520-8566-e5903a5c14b1",
+      "name": "Payment Methods",
+      "description": {
+        "content": "Available payment method retrieval and selection",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "85c77120-dc49-487a-a256-be760a6f82ca",
+          "name": "Set the payment method for the order",
+          "request": {
+            "name": "Set the payment method for the order",
+            "description": {
+              "content": "Stores the selected payment method in the session. Requires customer, cart products, and if applicable, a payment address.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_method"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Human-readable name of the payment method"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "(Required) Machine code of the payment method"
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "df9e07fb-9fbc-43b4-9421-6519db520183",
+              "name": "Payment method set or error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Human-readable name of the payment method",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "Bank Transfer"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Machine code of the payment method",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "bank_transfer"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "api_token",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": \"Success: You have modified your shopping cart!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f06c0109-4045-485b-8cef-a84ca47566a0",
+          "name": "Retrieve available payment methods",
+          "request": {
+            "name": "Retrieve available payment methods",
+            "description": {
+              "content": "Returns the list of available payment methods for the current session. Requires customer data, cart products, and if shipping is required, a shipping address and method.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_method",
+                "getPaymentMethods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Session token from the login endpoint"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44e15dbc-20f4-42f2-8ad0-af09f7c13ebd",
+              "name": "Available payment methods or error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_method",
+                    "getPaymentMethods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payment_methods\": [\n    {\n      \"code\": \"bank_transfer\",\n      \"name\": \"Bank Transfer\",\n      \"sort_order\": 1\n    },\n    {\n      \"code\": \"bank_transfer\",\n      \"name\": \"Bank Transfer\",\n      \"sort_order\": 1\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://yourstore.com/index.php?route=api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f42e73e8-d5ad-4ced-b625-66a9b3d4f5ea",
+    "name": "OpenCart REST Affiliates Payment Methods API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.\n\n\nContact Support:\n Name: OpenCart Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "item": [
+    {
+      "id": "efab6cb8-c1de-4ada-9cc0-977598b2446c",
+      "name": "Shipping Address",
+      "description": {
+        "content": "Shipping address management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "96741d1d-30bc-4a10-99db-cb0ec3dd64b2",
+          "name": "Set shipping (delivery) address",
+          "request": {
+            "name": "Set shipping (delivery) address",
+            "description": {
+              "content": "Validates and stores the shipping address for the current session. Required when the cart contains shippable items.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shipping_address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "shipping_firstname",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "shipping_lastname",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "shipping_address_1",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "shipping_city",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "shipping_country_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "shipping_zone_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "shipping_company",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "shipping_address_2",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "shipping_postcode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_0",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_1",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_2",
+                  "value": "2236"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_3",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_4",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eb84f17d-e9e6-4cce-aa06-ba9ab5e38fa1",
+              "name": "Shipping address set or validation errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipping_address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "shipping_firstname",
+                      "value": "John"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "shipping_lastname",
+                      "value": "Doe"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "shipping_address_1",
+                      "value": "456 Elm Street"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "shipping_city",
+                      "value": "Los Angeles"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "shipping_country_id",
+                      "value": "223"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "shipping_zone_id",
+                      "value": "3635"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "shipping_company",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "shipping_address_2",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "shipping_postcode",
+                      "value": "90210"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "string"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_1",
+                      "value": "string"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_2",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": \"string\",\n  \"shipping_address\": {\n    \"address_id\": 8297,\n    \"firstname\": \"string\",\n    \"lastname\": \"string\",\n    \"company\": \"string\",\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"postcode\": \"string\",\n    \"city\": \"string\",\n    \"zone_id\": 918,\n    \"zone\": \"string\",\n    \"zone_code\": \"string\",\n    \"country_id\": 810,\n    \"country\": \"string\",\n    \"iso_code_2\": \"string\",\n    \"iso_code_3\": \"string\",\n    \"address_format\": \"string\",\n    \"custom_field\": {\n      \"key_0\": 6449.478126075634,\n      \"key_1\": 2270.743416786556,\n      \"key_2\": 8294.058939805824\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://yourstore.com/index.php?route=api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3ce1bfac-270a-41e0-8dc8-e963f22e1458",
+    "name": "OpenCart REST Affiliates Shipping Address API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.\n\n\nContact Support:\n Name: OpenCart Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

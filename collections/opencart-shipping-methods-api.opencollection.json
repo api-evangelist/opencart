@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenCart REST Affiliates Shipping Methods API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shipping Methods",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Set the shipping method for the order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://yourstore.com/index.php?route=api/shipping_method",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "api_token",
+                  "value": ""
+                },
+                {
+                  "name": "shipping_method",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Stores the selected shipping method in the session. Requires customer and shipping address to be set, and that the cart has shippable items.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve available shipping methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://yourstore.com/index.php?route=api/shipping_method/getShippingMethods",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Session token from the login endpoint"
+              }
+            ]
+          },
+          "docs": "Returns the list of available shipping methods for the current session. Requires customer data and a shipping address to be set.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

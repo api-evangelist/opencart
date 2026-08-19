@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenCart REST Affiliates Payment Methods API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment Methods",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Set the payment method for the order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://yourstore.com/index.php?route=api/payment_method",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "api_token",
+                  "value": ""
+                },
+                {
+                  "name": "name",
+                  "value": ""
+                },
+                {
+                  "name": "code",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Stores the selected payment method in the session. Requires customer, cart products, and if applicable, a payment address.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve available payment methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://yourstore.com/index.php?route=api/payment_method/getPaymentMethods",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Session token from the login endpoint"
+              }
+            ]
+          },
+          "docs": "Returns the list of available payment methods for the current session. Requires customer data, cart products, and if shipping is required, a shipping address and method.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

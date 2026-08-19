@@ -1,0 +1,508 @@
+{
+  "item": [
+    {
+      "id": "82428e6c-ed0d-4423-a4d3-f7537e4093d6",
+      "name": "Cart",
+      "description": {
+        "content": "Shopping cart product management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c6104ba9-9270-407b-8aff-0f3773dcb436",
+          "name": "Add multiple products to cart",
+          "request": {
+            "name": "Add multiple products to cart",
+            "description": {
+              "content": "Adds one or more products to the shopping cart. Each product entry may include required options and an optional subscription plan.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cart"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "Session token from login"
+                },
+                {
+                  "disabled": false,
+                  "key": "product",
+                  "value": "{\"product_id\":\"<integer>\",\"quantity\":1,\"option\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\",\"key_3\":\"<string>\",\"key_4\":\"<string>\"},\"subscription_plan_id\":\"<integer>\"}"
+                },
+                {
+                  "disabled": false,
+                  "key": "product",
+                  "value": "{\"product_id\":\"<integer>\",\"quantity\":1,\"option\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"subscription_plan_id\":\"<integer>\"}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0ce5d6bc-fd47-48a5-8459-d7117a7629fd",
+              "name": "Products added or validation errors returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cart"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Session token from login",
+                        "type": "text/plain"
+                      },
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "product",
+                      "value": "{\"product_id\":28,\"quantity\":1,\"option\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"subscription_plan_id\":\"<integer>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "product",
+                      "value": "{\"product_id\":28,\"quantity\":1,\"option\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"subscription_plan_id\":\"<integer>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": \"Success: You have modified your shopping cart!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f12a8a2-f822-4261-859f-a38eaf718dff",
+          "name": "Add a single product to cart",
+          "request": {
+            "name": "Add a single product to cart",
+            "description": {
+              "content": "Adds a single product to the shopping cart with full option and subscription plan validation.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cart",
+                "addProduct"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "product_id",
+                  "value": "<integer>",
+                  "description": "(Required) Product identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "quantity",
+                  "value": "1",
+                  "description": "Quantity to add (default 1)"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_0",
+                  "value": "<string>",
+                  "description": "Map of option_id to option value(s)"
+                },
+                {
+                  "disabled": false,
+                  "key": "subscription_plan_id",
+                  "value": "<integer>",
+                  "description": "Subscription plan ID (if adding as a subscription)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d9d680d4-81a7-46f4-8c59-a4003450c3ee",
+              "name": "Product added or validation errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cart",
+                    "addProduct"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Product identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "product_id",
+                      "value": "28"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Quantity to add (default 1)",
+                        "type": "text/plain"
+                      },
+                      "key": "quantity",
+                      "value": "2"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Map of option_id to option value(s)",
+                        "type": "text/plain"
+                      },
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subscription plan ID (if adding as a subscription)",
+                        "type": "text/plain"
+                      },
+                      "key": "subscription_plan_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": \"Success: You have modified your shopping cart!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19e68adb-ca9f-4dbd-a1ec-3b2c1138350e",
+          "name": "Retrieve cart products",
+          "request": {
+            "name": "Retrieve cart products",
+            "description": {
+              "content": "Returns all products currently in the shopping cart session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cart",
+                "getProducts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Session token from the login endpoint"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f6580178-f0a6-4cb3-a340-d7ec15a6be61",
+              "name": "Cart product list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cart",
+                    "getProducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    {\n      \"cart_id\": \"string\",\n      \"product_id\": 1708,\n      \"name\": \"string\",\n      \"model\": \"string\",\n      \"option\": [\n        {\n          \"product_option_id\": 8335,\n          \"product_option_value_id\": 7785,\n          \"name\": \"string\",\n          \"value\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"product_option_id\": 1816,\n          \"product_option_value_id\": 210,\n          \"name\": \"string\",\n          \"value\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"subscription_plan_id\": 8445,\n      \"subscription\": \"string\",\n      \"quantity\": 1229,\n      \"price\": 7422.230333810446,\n      \"total\": 6849.957927515951\n    },\n    {\n      \"cart_id\": \"string\",\n      \"product_id\": 8294,\n      \"name\": \"string\",\n      \"model\": \"string\",\n      \"option\": [\n        {\n          \"product_option_id\": 3085,\n          \"product_option_value_id\": 1861,\n          \"name\": \"string\",\n          \"value\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"product_option_id\": 8793,\n          \"product_option_value_id\": 270,\n          \"name\": \"string\",\n          \"value\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"subscription_plan_id\": 9712,\n      \"subscription\": \"string\",\n      \"quantity\": 1041,\n      \"price\": 7719.237213059382,\n      \"total\": 1397.1932161700474\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4c397ef-5be4-49d4-a058-e713531bb9d7",
+          "name": "Retrieve cart totals",
+          "request": {
+            "name": "Retrieve cart totals",
+            "description": {
+              "content": "Returns formatted cart totals including subtotal, shipping, taxes, and grand total.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cart",
+                "getTotals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Session token from the login endpoint"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9456af2-e6f5-4587-b6ba-b94269ddb6fb",
+              "name": "Cart totals",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cart",
+                    "getTotals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totals\": [\n    {\n      \"title\": \"Sub-Total\",\n      \"text\": \"$100.00\",\n      \"value\": 100\n    },\n    {\n      \"title\": \"Sub-Total\",\n      \"text\": \"$100.00\",\n      \"value\": 100\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://yourstore.com/index.php?route=api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "983977d6-b967-43f2-a191-6f932a0a2aa5",
+    "name": "OpenCart REST Affiliates Cart API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.\n\n\nContact Support:\n Name: OpenCart Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

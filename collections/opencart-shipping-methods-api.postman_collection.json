@@ -1,0 +1,295 @@
+{
+  "item": [
+    {
+      "id": "eb456602-c624-45b2-9096-2d24afaf447e",
+      "name": "Shipping Methods",
+      "description": {
+        "content": "Available shipping method retrieval and selection",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f40098e8-8c10-4511-9016-153d55208662",
+          "name": "Set the shipping method for the order",
+          "request": {
+            "name": "Set the shipping method for the order",
+            "description": {
+              "content": "Stores the selected shipping method in the session. Requires customer and shipping address to be set, and that the cart has shippable items.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shipping_method"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "cost",
+                  "value": "<float>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "tax_class_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "22301001-b8d2-43f0-89de-910403aa0863",
+              "name": "Shipping method set or error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipping_method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "Flat Shipping Rate"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "flat.flat"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "cost",
+                      "value": "5"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "tax_class_id",
+                      "value": "9"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "api_token",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": \"Success: You have modified your shopping cart!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1c12f38-ed4f-4517-8a57-75c0a8d03eb9",
+          "name": "Retrieve available shipping methods",
+          "request": {
+            "name": "Retrieve available shipping methods",
+            "description": {
+              "content": "Returns the list of available shipping methods for the current session. Requires customer data and a shipping address to be set.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shipping_method",
+                "getShippingMethods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Session token from the login endpoint"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef8ac213-f10d-4e84-836e-ae13c01c379c",
+              "name": "Available shipping methods or error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipping_method",
+                    "getShippingMethods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"shipping_methods\": [\n    {\n      \"title\": \"Flat Shipping Rate\",\n      \"quote\": {\n        \"key_0\": {\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"cost\": 7014.131980151758,\n          \"tax_class_id\": 7999,\n          \"text\": \"string\"\n        },\n        \"key_1\": {\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"cost\": 5914.902056341155,\n          \"tax_class_id\": 2739,\n          \"text\": \"string\"\n        }\n      },\n      \"sort_order\": 2803,\n      \"error\": \"string\"\n    },\n    {\n      \"title\": \"Flat Shipping Rate\",\n      \"quote\": {\n        \"key_0\": {\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"cost\": 2713.039113544008,\n          \"tax_class_id\": 241,\n          \"text\": \"string\"\n        },\n        \"key_1\": {\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"cost\": 1215.2431210961224,\n          \"tax_class_id\": 810,\n          \"text\": \"string\"\n        },\n        \"key_2\": {\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"cost\": 2270.856152353876,\n          \"tax_class_id\": 715,\n          \"text\": \"string\"\n        }\n      },\n      \"sort_order\": 9416,\n      \"error\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://yourstore.com/index.php?route=api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "46de99ab-4b1c-4c6b-896d-c768e3f28b55",
+    "name": "OpenCart REST Affiliates Shipping Methods API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.\n\n\nContact Support:\n Name: OpenCart Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "d31d5ccd-d4e7-4092-9a5f-f6dd3414cf8d",
+      "name": "Customer",
+      "description": {
+        "content": "Customer session and profile management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "82a49197-54e9-4ae1-811a-69fcb18ab72b",
+          "name": "Set customer for the current session",
+          "request": {
+            "name": "Set customer for the current session",
+            "description": {
+              "content": "Associates a customer with the current API session. Validates customer existence, group, name, email, telephone, and custom fields.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "customer_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "customer_group_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "firstname",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "lastname",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<email>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "telephone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_0",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_1",
+                  "value": "399"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f9f8b612-aab5-4ab3-81b5-e99898f68982",
+              "name": "Customer set or validation errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "customer_id",
+                      "value": "1"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "customer_group_id",
+                      "value": "1"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "firstname",
+                      "value": "John"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "lastname",
+                      "value": "Doe"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "john.doe@example.com"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "telephone",
+                      "value": "+1 555-0100"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "6948"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_1",
+                      "value": "string"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_2",
+                      "value": "6949.496747812128"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": \"Success: You have modified your shopping cart!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://yourstore.com/index.php?route=api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3175ffe2-6fa3-4d8b-97f8-2abbefec92cd",
+    "name": "OpenCart REST Affiliates Customer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.\n\n\nContact Support:\n Name: OpenCart Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

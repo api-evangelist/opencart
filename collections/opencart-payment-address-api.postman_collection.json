@@ -1,0 +1,402 @@
+{
+  "item": [
+    {
+      "id": "92603597-c5e7-49f1-b2fd-8f69713547ab",
+      "name": "Payment Address",
+      "description": {
+        "content": "Billing address management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c19281a-78ce-4946-a51d-cf417d1111eb",
+          "name": "Set payment (billing) address",
+          "request": {
+            "name": "Set payment (billing) address",
+            "description": {
+              "content": "Validates and stores the billing address for the current session. Requires address fields including name, street, city, country, and zone.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "payment_firstname",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_lastname",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_address_1",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_city",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_country_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_zone_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_company",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_address_2",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_postcode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_0",
+                  "value": "2638.6885715717035"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_1",
+                  "value": "9106.039360944826"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_2",
+                  "value": "false"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ec7bb507-464f-4337-9ac1-60ac06d70252",
+              "name": "Payment address set or validation errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "payment_firstname",
+                      "value": "John"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "payment_lastname",
+                      "value": "Doe"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "payment_address_1",
+                      "value": "123 Main Street"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "payment_city",
+                      "value": "Los Angeles"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "payment_country_id",
+                      "value": "223"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "payment_zone_id",
+                      "value": "3635"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "payment_company",
+                      "value": "ACME Corp"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "payment_address_2",
+                      "value": "Suite 100"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "payment_postcode",
+                      "value": "90210"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "6679.026379607452"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": \"Success: You have modified your shopping cart!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7a30f55-a41b-4c88-989c-16aaa3051e2a",
+          "name": "Set payment address from saved customer address",
+          "request": {
+            "name": "Set payment address from saved customer address",
+            "description": {
+              "content": "Selects an existing saved customer address as the billing address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_address",
+                "setAddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "payment_address_id",
+                  "value": "<integer>",
+                  "description": "(Required) ID of the saved customer address to use for billing"
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e0dbc7fd-ac37-47a4-a4b7-35adcb035b1b",
+              "name": "Payment address set or error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_address",
+                    "setAddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ID of the saved customer address to use for billing",
+                        "type": "text/plain"
+                      },
+                      "key": "payment_address_id",
+                      "value": "5"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "api_token",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": \"Success: You have modified your shopping cart!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://yourstore.com/index.php?route=api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "986e3fa8-6a80-4c89-94df-4393d0b5d52d",
+    "name": "OpenCart REST Affiliates Payment Address API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.\n\n\nContact Support:\n Name: OpenCart Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}
