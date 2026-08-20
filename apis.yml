@@ -25,6 +25,15 @@ created: 2026-06-13
 modified: 2026-06-13
 specificationVersion: '0.23'
 tags:
+  - E-Commerce
+  - Shopping Cart
+  - Open-Source
+  - Self-Hosted
+  - Product
+  - Order
+  - Customers
+  - Categories
+tags_raw:
   - eCommerce
   - Shopping Cart
   - Open Source
@@ -88,6 +97,8 @@ apis:
   humanURL: https://docs.opencart.com/admin-interface/system/users/api
   baseURL: https://yourstore.com/api
   tags:
+  - Customers
+  tags_raw:
   - Customer
   properties:
   - type: OpenAPI
@@ -104,6 +115,8 @@ apis:
   humanURL: https://docs.opencart.com/admin-interface/system/users/api
   baseURL: https://yourstore.com/api
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -184,6 +197,8 @@ apis:
   humanURL: https://docs.opencart.com/admin-interface/system/users/api
   baseURL: https://yourstore.com/api
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
