@@ -6,6 +6,19 @@ description: >
   configuration in self-hosted environments. Built on PHP and MySQL,
   OpenCart powers over 470,000 online stores worldwide and offers token-based
   API authentication with IP-allowlist security controls.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
@@ -210,6 +223,12 @@ apis:
   - type: GitHubRepository
     url: https://github.com/opencart/opencart
 common:
+  - type: IssueTracker
+    url: https://github.com/opencart/opencart/issues
+  - type: Releases
+    url: https://github.com/opencart/opencart/releases
+  - type: ContributionGuide
+    url: https://github.com/opencart/opencart/blob/master/CONTRIBUTING.md
   - type: AgenticAccess
     url: agentic-access/opencart-agentic-access.yml
   - type: DomainSecurity
