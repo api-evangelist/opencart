@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: OpenCart REST Affiliates Orders API
-  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
-
-    '
+  title: OpenCart REST Orders API
+  description: The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
   version: '4.0'
   contact:
     name: OpenCart Developer Documentation
@@ -24,9 +22,7 @@ paths:
     post:
       operationId: manageOrder
       summary: Manage order operations via call parameter
-      description: 'Dispatches order operations based on the `call` query parameter. Supports cart retrieval, product addition, address setting, shipping/payment method selection, order confirmation, and history updates.
-
-        '
+      description: Dispatches order operations based on the `call` query parameter. Supports cart retrieval, product addition, address setting, shipping/payment method selection, order confirmation, and history updates.
       tags:
       - Orders
       parameters:

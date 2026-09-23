@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: OpenCart REST Affiliates Customer API
-  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
-
-    '
+  title: OpenCart REST Customer API
+  description: The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
   version: '4.0'
   contact:
     name: OpenCart Developer Documentation
@@ -24,9 +22,7 @@ paths:
     post:
       operationId: setCustomer
       summary: Set customer for the current session
-      description: 'Associates a customer with the current API session. Validates customer existence, group, name, email, telephone, and custom fields.
-
-        '
+      description: Associates a customer with the current API session. Validates customer existence, group, name, email, telephone, and custom fields.
       tags:
       - Customer
       requestBody:
@@ -46,13 +42,6 @@ paths:
                 - $ref: '#/components/schemas/CustomerErrorResponse'
 components:
   schemas:
-    SuccessResponse:
-      type: object
-      properties:
-        success:
-          type: string
-          description: Localised success message
-          example: 'Success: You have modified your shopping cart!'
     CustomerErrorResponse:
       type: object
       properties:
@@ -71,6 +60,13 @@ components:
               type: string
             telephone:
               type: string
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: string
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
     CustomerInput:
       type: object
       required:

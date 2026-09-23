@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: OpenCart REST Affiliates Cart API
-  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
-
-    '
+  title: OpenCart REST Cart API
+  description: The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
   version: '4.0'
   contact:
     name: OpenCart Developer Documentation
@@ -24,9 +22,7 @@ paths:
     post:
       operationId: addProductsToCart
       summary: Add multiple products to cart
-      description: 'Adds one or more products to the shopping cart. Each product entry may include required options and an optional subscription plan.
-
-        '
+      description: Adds one or more products to the shopping cart. Each product entry may include required options and an optional subscription plan.
       tags:
       - Cart
       requestBody:
@@ -56,9 +52,7 @@ paths:
     post:
       operationId: addSingleProductToCart
       summary: Add a single product to cart
-      description: 'Adds a single product to the shopping cart with full option and subscription plan validation.
-
-        '
+      description: Adds a single product to the shopping cart with full option and subscription plan validation.
       tags:
       - Cart
       requestBody:
@@ -145,15 +139,29 @@ paths:
                     items:
                       $ref: '#/components/schemas/CartTotal'
 components:
-  parameters:
-    ApiToken:
-      name: api_token
-      in: query
-      required: true
-      schema:
-        type: string
-      description: Session token from the login endpoint
   schemas:
+    CartTotal:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Display label (e.g. Sub-Total, Flat Shipping Rate, Tax, Total)
+          example: Sub-Total
+        text:
+          type: string
+          description: Formatted currency value
+          example: $100.00
+        value:
+          type: number
+          format: float
+          example: 100.0
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: string
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
     CartErrorResponse:
       type: object
       properties:
@@ -191,28 +199,6 @@ components:
                 type: string
         subscription_plan_id:
           type: integer
-    CartTotal:
-      type: object
-      properties:
-        title:
-          type: string
-          description: Display label (e.g. Sub-Total, Flat Shipping Rate, Tax, Total)
-          example: Sub-Total
-        text:
-          type: string
-          description: Formatted currency value
-          example: $100.00
-        value:
-          type: number
-          format: float
-          example: 100.0
-    SuccessResponse:
-      type: object
-      properties:
-        success:
-          type: string
-          description: Localised success message
-          example: 'Success: You have modified your shopping cart!'
     CartProduct:
       type: object
       properties:
@@ -252,6 +238,14 @@ components:
         total:
           type: number
           format: float
+  parameters:
+    ApiToken:
+      name: api_token
+      in: query
+      required: true
+      schema:
+        type: string
+      description: Session token from the login endpoint
   securitySchemes:
     apiToken:
       type: apiKey

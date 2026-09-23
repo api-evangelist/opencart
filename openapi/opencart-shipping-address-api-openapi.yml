@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: OpenCart REST Affiliates Shipping Address API
-  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
-
-    '
+  title: OpenCart REST Shipping Address API
+  description: The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
   version: '4.0'
   contact:
     name: OpenCart Developer Documentation
@@ -24,9 +22,7 @@ paths:
     post:
       operationId: setShippingAddress
       summary: Set shipping (delivery) address
-      description: 'Validates and stores the shipping address for the current session. Required when the cart contains shippable items.
-
-        '
+      description: Validates and stores the shipping address for the current session. Required when the cart contains shippable items.
       tags:
       - Shipping Address
       requestBody:
@@ -46,6 +42,64 @@ paths:
                 - $ref: '#/components/schemas/AddressErrorResponse'
 components:
   schemas:
+    AddressErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            firstname:
+              type: string
+            lastname:
+              type: string
+            address_1:
+              type: string
+            city:
+              type: string
+            postcode:
+              type: string
+            country:
+              type: string
+            zone:
+              type: string
+    Address:
+      type: object
+      properties:
+        address_id:
+          type: integer
+        firstname:
+          type: string
+        lastname:
+          type: string
+        company:
+          type: string
+        address_1:
+          type: string
+        address_2:
+          type: string
+        postcode:
+          type: string
+        city:
+          type: string
+        zone_id:
+          type: integer
+        zone:
+          type: string
+        zone_code:
+          type: string
+        country_id:
+          type: integer
+        country:
+          type: string
+        iso_code_2:
+          type: string
+        iso_code_3:
+          type: string
+        address_format:
+          type: string
+        custom_field:
+          type: object
+          additionalProperties: true
     ShippingAddressResponse:
       type: object
       properties:
@@ -103,64 +157,6 @@ components:
         shipping_custom_field:
           type: object
           additionalProperties: true
-    Address:
-      type: object
-      properties:
-        address_id:
-          type: integer
-        firstname:
-          type: string
-        lastname:
-          type: string
-        company:
-          type: string
-        address_1:
-          type: string
-        address_2:
-          type: string
-        postcode:
-          type: string
-        city:
-          type: string
-        zone_id:
-          type: integer
-        zone:
-          type: string
-        zone_code:
-          type: string
-        country_id:
-          type: integer
-        country:
-          type: string
-        iso_code_2:
-          type: string
-        iso_code_3:
-          type: string
-        address_format:
-          type: string
-        custom_field:
-          type: object
-          additionalProperties: true
-    AddressErrorResponse:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            firstname:
-              type: string
-            lastname:
-              type: string
-            address_1:
-              type: string
-            city:
-              type: string
-            postcode:
-              type: string
-            country:
-              type: string
-            zone:
-              type: string
   securitySchemes:
     apiToken:
       type: apiKey

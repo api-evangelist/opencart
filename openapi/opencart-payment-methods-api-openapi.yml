@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: OpenCart REST Affiliates Payment Methods API
-  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
-
-    '
+  title: OpenCart REST Payment Methods API
+  description: The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
   version: '4.0'
   contact:
     name: OpenCart Developer Documentation
@@ -24,9 +22,7 @@ paths:
     post:
       operationId: setPaymentMethod
       summary: Set the payment method for the order
-      description: 'Stores the selected payment method in the session. Requires customer, cart products, and if applicable, a payment address.
-
-        '
+      description: Stores the selected payment method in the session. Requires customer, cart products, and if applicable, a payment address.
       tags:
       - Payment Methods
       requestBody:
@@ -62,9 +58,7 @@ paths:
     get:
       operationId: getPaymentMethods
       summary: Retrieve available payment methods
-      description: 'Returns the list of available payment methods for the current session. Requires customer data, cart products, and if shipping is required, a shipping address and method.
-
-        '
+      description: Returns the list of available payment methods for the current session. Requires customer data, cart products, and if shipping is required, a shipping address and method.
       tags:
       - Payment Methods
       parameters:

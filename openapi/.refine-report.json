@@ -1,16 +1,7 @@
 {
   "provider": "opencart",
   "sources": [
-    "opencart-affiliates-api-openapi.yml",
-    "opencart-authentication-api-openapi.yml",
-    "opencart-cart-api-openapi.yml",
-    "opencart-customer-api-openapi.yml",
-    "opencart-orders-api-openapi.yml",
-    "opencart-payment-address-api-openapi.yml",
-    "opencart-payment-methods-api-openapi.yml",
-    "opencart-shipping-address-api-openapi.yml",
-    "opencart-shipping-methods-api-openapi.yml",
-    "opencart-subscriptions-api-openapi.yml"
+    "_original/opencart-rest-api.yml"
   ],
   "outputs": [
     "opencart-affiliates-api-openapi.yml",
@@ -27,6 +18,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "opencart-rest-api.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "opencart-affiliates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opencart-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opencart-cart-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opencart-customer-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opencart-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opencart-payment-address-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opencart-payment-methods-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opencart-shipping-address-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opencart-shipping-methods-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opencart-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

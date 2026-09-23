@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: OpenCart REST Affiliates Shipping Methods API
-  description: 'The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
-
-    '
+  title: OpenCart REST Shipping Methods API
+  description: The OpenCart REST API enables external applications to communicate with a self-hosted OpenCart store. It provides endpoints for managing the shopping cart, customers, orders, addresses, shipping methods, payment methods, subscriptions, and affiliates. Authentication is performed by submitting API credentials to receive a session token, which must accompany subsequent requests. IP-allowlist enforcement is applied at the store level.
   version: '4.0'
   contact:
     name: OpenCart Developer Documentation
@@ -24,9 +22,7 @@ paths:
     post:
       operationId: setShippingMethod
       summary: Set the shipping method for the order
-      description: 'Stores the selected shipping method in the session. Requires customer and shipping address to be set, and that the cart has shippable items.
-
-        '
+      description: Stores the selected shipping method in the session. Requires customer and shipping address to be set, and that the cart has shippable items.
       tags:
       - Shipping Methods
       requestBody:
@@ -55,9 +51,7 @@ paths:
     get:
       operationId: getShippingMethods
       summary: Retrieve available shipping methods
-      description: 'Returns the list of available shipping methods for the current session. Requires customer data and a shipping address to be set.
-
-        '
+      description: Returns the list of available shipping methods for the current session. Requires customer data and a shipping address to be set.
       tags:
       - Shipping Methods
       parameters:
@@ -77,47 +71,7 @@ paths:
                         $ref: '#/components/schemas/ShippingMethod'
                 - $ref: '#/components/schemas/ErrorResponse'
 components:
-  parameters:
-    ApiToken:
-      name: api_token
-      in: query
-      required: true
-      schema:
-        type: string
-      description: Session token from the login endpoint
   schemas:
-    ShippingMethodInput:
-      type: object
-      required:
-      - name
-      - code
-      - cost
-      - tax_class_id
-      properties:
-        name:
-          type: string
-          description: Human-readable name of the shipping method
-          example: Flat Shipping Rate
-        code:
-          type: string
-          description: Machine code of the shipping method
-          example: flat.flat
-        cost:
-          type: number
-          format: float
-          description: Shipping cost (pre-tax)
-          example: 5.0
-        tax_class_id:
-          type: integer
-          description: Tax class applied to shipping cost
-          example: 9
-    SuccessResponse:
-      type: object
-      properties:
-        success:
-          type: string
-          description: Localised success message
-          example: 'Success: You have modified your shopping cart!'
     ErrorResponse:
       type: object
       properties:
@@ -125,6 +79,13 @@ components:
           type: string
           description: Localised error message
           example: 'Warning: Permission Denied!'
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: string
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
     ShippingMethod:
       type: object
       properties:
@@ -151,6 +112,39 @@ components:
           type: integer
         error:
           type: string
+    ShippingMethodInput:
+      type: object
+      required:
+      - name
+      - code
+      - cost
+      - tax_class_id
+      properties:
+        name:
+          type: string
+          description: Human-readable name of the shipping method
+          example: Flat Shipping Rate
+        code:
+          type: string
+          description: Machine code of the shipping method
+          example: flat.flat
+        cost:
+          type: number
+          format: float
+          description: Shipping cost (pre-tax)
+          example: 5.0
+        tax_class_id:
+          type: integer
+          description: Tax class applied to shipping cost
+          example: 9
+  parameters:
+    ApiToken:
+      name: api_token
+      in: query
+      required: true
+      schema:
+        type: string
+      description: Session token from the login endpoint
   securitySchemes:
     apiToken:
       type: apiKey
