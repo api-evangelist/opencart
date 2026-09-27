@@ -73,13 +73,13 @@ paths:
                 - $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    SuccessResponse:
+    ErrorResponse:
       type: object
       properties:
-        success:
+        error:
           type: string
-          description: Localised success message
-          example: 'Success: You have modified your shopping cart!'
+          description: Localised error message
+          example: 'Warning: Permission Denied!'
     AddressErrorResponse:
       type: object
       properties:
@@ -100,13 +100,13 @@ components:
               type: string
             zone:
               type: string
-    ErrorResponse:
+    SuccessResponse:
       type: object
       properties:
-        error:
+        success:
           type: string
-          description: Localised error message
-          example: 'Warning: Permission Denied!'
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
     PaymentAddressInput:
       type: object
       required:

@@ -79,13 +79,13 @@ paths:
                 - $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    SuccessResponse:
+    ErrorResponse:
       type: object
       properties:
-        success:
+        error:
           type: string
-          description: Localised success message
-          example: 'Success: You have modified your shopping cart!'
+          description: Localised error message
+          example: 'Warning: Permission Denied!'
     PaymentMethod:
       type: object
       properties:
@@ -98,13 +98,13 @@ components:
         sort_order:
           type: integer
           example: 1
-    ErrorResponse:
+    SuccessResponse:
       type: object
       properties:
-        error:
+        success:
           type: string
-          description: Localised error message
-          example: 'Warning: Permission Denied!'
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
   parameters:
     ApiToken:
       name: api_token

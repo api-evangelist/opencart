@@ -100,13 +100,6 @@ components:
         custom_field:
           type: object
           additionalProperties: true
-    ShippingAddressResponse:
-      type: object
-      properties:
-        success:
-          type: string
-        shipping_address:
-          $ref: '#/components/schemas/Address'
     ShippingAddressInput:
       type: object
       required:
@@ -157,6 +150,13 @@ components:
         shipping_custom_field:
           type: object
           additionalProperties: true
+    ShippingAddressResponse:
+      type: object
+      properties:
+        success:
+          type: string
+        shipping_address:
+          $ref: '#/components/schemas/Address'
   securitySchemes:
     apiToken:
       type: apiKey

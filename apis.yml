@@ -8,6 +8,10 @@ description: >
   API authentication with IP-allowlist security controls.
 deliveryModel:
   model: unknown
+  license_evidence:
+    repo: opencart/opencart
+    spdx: NOASSERTION
+    stars: 8200
   open_source: unknown
   commercial: true
   callable_host: true
@@ -17,7 +21,7 @@ deliveryModel:
   - openapi
   - pricing
   - repository-unlicensed
-  generated: '2026-08-28'
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: free
@@ -41,7 +45,7 @@ specificationVersion: '0.23'
 tags:
   - E-Commerce
   - Shopping Cart
-  - Open-Source
+  - Open Source
   - Self-Hosted
   - Product
   - Order
@@ -56,6 +60,7 @@ tags_raw:
   - Orders
   - Customers
   - Categories
+  - Open-Source
 apis:
 - aid: opencart:opencart-affiliates-api
   name: OpenCart Affiliates API

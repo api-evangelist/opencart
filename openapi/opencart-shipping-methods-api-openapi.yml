@@ -72,20 +72,6 @@ paths:
                 - $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Localised error message
-          example: 'Warning: Permission Denied!'
-    SuccessResponse:
-      type: object
-      properties:
-        success:
-          type: string
-          description: Localised success message
-          example: 'Success: You have modified your shopping cart!'
     ShippingMethod:
       type: object
       properties:
@@ -112,6 +98,20 @@ components:
           type: integer
         error:
           type: string
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: string
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Localised error message
+          example: 'Warning: Permission Denied!'
     ShippingMethodInput:
       type: object
       required:
