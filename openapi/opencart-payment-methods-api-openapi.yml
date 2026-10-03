@@ -79,13 +79,6 @@ paths:
                 - $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Localised error message
-          example: 'Warning: Permission Denied!'
     PaymentMethod:
       type: object
       properties:
@@ -98,6 +91,13 @@ components:
         sort_order:
           type: integer
           example: 1
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Localised error message
+          example: 'Warning: Permission Denied!'
     SuccessResponse:
       type: object
       properties:

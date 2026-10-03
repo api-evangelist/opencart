@@ -179,6 +179,27 @@ components:
         total:
           type: number
           format: float
+    CartErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            warning:
+              type: string
+            product:
+              type: string
+            option:
+              type: string
+            subscription:
+              type: string
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: string
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
     CartTotal:
       type: object
       properties:
@@ -194,13 +215,6 @@ components:
           type: number
           format: float
           example: 100.0
-    SuccessResponse:
-      type: object
-      properties:
-        success:
-          type: string
-          description: Localised success message
-          example: 'Success: You have modified your shopping cart!'
     CartProductInput:
       type: object
       required:
@@ -224,20 +238,6 @@ components:
                 type: string
         subscription_plan_id:
           type: integer
-    CartErrorResponse:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            warning:
-              type: string
-            product:
-              type: string
-            option:
-              type: string
-            subscription:
-              type: string
   parameters:
     ApiToken:
       name: api_token

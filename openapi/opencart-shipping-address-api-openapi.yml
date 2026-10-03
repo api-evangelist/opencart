@@ -42,26 +42,6 @@ paths:
                 - $ref: '#/components/schemas/AddressErrorResponse'
 components:
   schemas:
-    AddressErrorResponse:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            firstname:
-              type: string
-            lastname:
-              type: string
-            address_1:
-              type: string
-            city:
-              type: string
-            postcode:
-              type: string
-            country:
-              type: string
-            zone:
-              type: string
     Address:
       type: object
       properties:
@@ -157,6 +137,26 @@ components:
           type: string
         shipping_address:
           $ref: '#/components/schemas/Address'
+    AddressErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            firstname:
+              type: string
+            lastname:
+              type: string
+            address_1:
+              type: string
+            city:
+              type: string
+            postcode:
+              type: string
+            country:
+              type: string
+            zone:
+              type: string
   securitySchemes:
     apiToken:
       type: apiKey

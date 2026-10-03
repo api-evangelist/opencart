@@ -100,13 +100,6 @@ components:
               type: string
             zone:
               type: string
-    SuccessResponse:
-      type: object
-      properties:
-        success:
-          type: string
-          description: Localised success message
-          example: 'Success: You have modified your shopping cart!'
     PaymentAddressInput:
       type: object
       required:
@@ -159,6 +152,13 @@ components:
         payment_custom_field:
           type: object
           additionalProperties: true
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: string
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
   securitySchemes:
     apiToken:
       type: apiKey
