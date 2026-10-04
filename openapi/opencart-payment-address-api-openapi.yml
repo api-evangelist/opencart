@@ -80,26 +80,6 @@ components:
           type: string
           description: Localised error message
           example: 'Warning: Permission Denied!'
-    AddressErrorResponse:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            firstname:
-              type: string
-            lastname:
-              type: string
-            address_1:
-              type: string
-            city:
-              type: string
-            postcode:
-              type: string
-            country:
-              type: string
-            zone:
-              type: string
     PaymentAddressInput:
       type: object
       required:
@@ -159,6 +139,26 @@ components:
           type: string
           description: Localised success message
           example: 'Success: You have modified your shopping cart!'
+    AddressErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            firstname:
+              type: string
+            lastname:
+              type: string
+            address_1:
+              type: string
+            city:
+              type: string
+            postcode:
+              type: string
+            country:
+              type: string
+            zone:
+              type: string
   securitySchemes:
     apiToken:
       type: apiKey

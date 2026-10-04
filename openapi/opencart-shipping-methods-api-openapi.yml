@@ -72,6 +72,13 @@ paths:
                 - $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Localised error message
+          example: 'Warning: Permission Denied!'
     ShippingMethod:
       type: object
       properties:
@@ -130,13 +137,6 @@ components:
           type: string
           description: Localised success message
           example: 'Success: You have modified your shopping cart!'
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Localised error message
-          example: 'Warning: Permission Denied!'
   parameters:
     ApiToken:
       name: api_token

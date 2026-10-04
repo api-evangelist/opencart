@@ -140,6 +140,58 @@ paths:
                       $ref: '#/components/schemas/CartTotal'
 components:
   schemas:
+    CartTotal:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Display label (e.g. Sub-Total, Flat Shipping Rate, Tax, Total)
+          example: Sub-Total
+        text:
+          type: string
+          description: Formatted currency value
+          example: $100.00
+        value:
+          type: number
+          format: float
+          example: 100.0
+    CartErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            warning:
+              type: string
+            product:
+              type: string
+            option:
+              type: string
+            subscription:
+              type: string
+    CartProductInput:
+      type: object
+      required:
+      - product_id
+      - quantity
+      properties:
+        product_id:
+          type: integer
+          example: 28
+        quantity:
+          type: integer
+          default: 1
+          example: 1
+        option:
+          type: object
+          additionalProperties:
+            oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+        subscription_plan_id:
+          type: integer
     CartProduct:
       type: object
       properties:
@@ -179,20 +231,6 @@ components:
         total:
           type: number
           format: float
-    CartErrorResponse:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            warning:
-              type: string
-            product:
-              type: string
-            option:
-              type: string
-            subscription:
-              type: string
     SuccessResponse:
       type: object
       properties:
@@ -200,44 +238,6 @@ components:
           type: string
           description: Localised success message
           example: 'Success: You have modified your shopping cart!'
-    CartTotal:
-      type: object
-      properties:
-        title:
-          type: string
-          description: Display label (e.g. Sub-Total, Flat Shipping Rate, Tax, Total)
-          example: Sub-Total
-        text:
-          type: string
-          description: Formatted currency value
-          example: $100.00
-        value:
-          type: number
-          format: float
-          example: 100.0
-    CartProductInput:
-      type: object
-      required:
-      - product_id
-      - quantity
-      properties:
-        product_id:
-          type: integer
-          example: 28
-        quantity:
-          type: integer
-          default: 1
-          example: 1
-        option:
-          type: object
-          additionalProperties:
-            oneOf:
-            - type: string
-            - type: array
-              items:
-                type: string
-        subscription_plan_id:
-          type: integer
   parameters:
     ApiToken:
       name: api_token

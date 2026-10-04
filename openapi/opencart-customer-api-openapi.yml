@@ -42,13 +42,6 @@ paths:
                 - $ref: '#/components/schemas/CustomerErrorResponse'
 components:
   schemas:
-    SuccessResponse:
-      type: object
-      properties:
-        success:
-          type: string
-          description: Localised success message
-          example: 'Success: You have modified your shopping cart!'
     CustomerErrorResponse:
       type: object
       properties:
@@ -104,6 +97,13 @@ components:
         custom_field:
           type: object
           additionalProperties: true
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: string
+          description: Localised success message
+          example: 'Success: You have modified your shopping cart!'
   securitySchemes:
     apiToken:
       type: apiKey

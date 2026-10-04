@@ -78,19 +78,15 @@ paths:
                         $ref: '#/components/schemas/PaymentMethod'
                 - $ref: '#/components/schemas/ErrorResponse'
 components:
+  parameters:
+    ApiToken:
+      name: api_token
+      in: query
+      required: true
+      schema:
+        type: string
+      description: Session token from the login endpoint
   schemas:
-    PaymentMethod:
-      type: object
-      properties:
-        code:
-          type: string
-          example: bank_transfer
-        name:
-          type: string
-          example: Bank Transfer
-        sort_order:
-          type: integer
-          example: 1
     ErrorResponse:
       type: object
       properties:
@@ -105,14 +101,18 @@ components:
           type: string
           description: Localised success message
           example: 'Success: You have modified your shopping cart!'
-  parameters:
-    ApiToken:
-      name: api_token
-      in: query
-      required: true
-      schema:
-        type: string
-      description: Session token from the login endpoint
+    PaymentMethod:
+      type: object
+      properties:
+        code:
+          type: string
+          example: bank_transfer
+        name:
+          type: string
+          example: Bank Transfer
+        sort_order:
+          type: integer
+          example: 1
   securitySchemes:
     apiToken:
       type: apiKey
