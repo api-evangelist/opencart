@@ -64,26 +64,172 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-OpenCart is a free, open-source eCommerce platform providing a REST API for managing products, categories, orders, customers, returns, and store configuration in self-hosted environments. Built on PHP and MySQL, OpenCart powers over 470,000 online stores worldwide.
+OpenCart is a free, open-source eCommerce platform providing a REST API for managing products, categories, orders, customers, returns, and store configuration in self-hosted environments. Built on PHP and MySQL, OpenCart powers over 470,000 online stores worldwide and offers token-based API authentication with IP-allowlist security controls.
 
-## Links
+**Areas:** E-Commerce · Shopping Cart · Open Source · Self-Hosted · Product · Order · Customers · Categories
 
-- **Website:** https://www.opencart.com
-- **Documentation:** https://docs.opencart.com
-- **API Documentation:** https://docs.opencart.com/admin-interface/system/users/api
-- **Developer Guide:** https://docs.opencart.com/developer/
-- **GitHub:** https://github.com/opencart/opencart
-- **Blog:** https://www.opencart.com/blog
-- **Marketplace:** https://www.opencart.com/index.php?route=marketplace/extension
-- **Community Forum:** https://forum.opencart.com
-- **X / Twitter:** https://twitter.com/opencart
-- **LinkedIn:** https://www.linkedin.com/company/5224021/
+## OpenCart on APIs.io
 
-## APIs.json
+Everything profiled for OpenCart is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/opencart/](https://apis.io/providers/opencart/)** — or go straight to one of the APIs or properties below.
 
-This repository contains an [apis.yml](apis.yml) profile describing the OpenCart API, along with supporting files for plans, rate limits, and FinOps considerations.
+### APIs (10)
 
-- [apis.yml](apis.yml) — APIs.json 0.19 index
-- [plans/opencart-plans-pricing.yml](plans/opencart-plans-pricing.yml) — Pricing and plan details
-- [rate-limits/opencart-rate-limits.yml](rate-limits/opencart-rate-limits.yml) — Rate limit information
-- [finops/opencart-finops.yml](finops/opencart-finops.yml) — FinOps cost optimization guidance
+- [OpenCart Affiliates API](https://apis.io/apis/opencart/opencart-affiliates-api/) — Affiliate session management
+- [OpenCart Authentication API](https://apis.io/apis/opencart/opencart-authentication-api/) — API login and session token management
+- [OpenCart Cart API](https://apis.io/apis/opencart/opencart-cart-api/) — Shopping cart product management
+- [OpenCart Customer API](https://apis.io/apis/opencart/opencart-customer-api/) — Customer session and profile management
+- [OpenCart Orders API](https://apis.io/apis/opencart/opencart-orders-api/) — Order creation, confirmation, and history
+- [OpenCart Payment Address API](https://apis.io/apis/opencart/opencart-payment-address-api/) — Billing address management
+- [OpenCart Payment Methods API](https://apis.io/apis/opencart/opencart-payment-methods-api/) — Available payment method retrieval and selection
+- [OpenCart Shipping Address API](https://apis.io/apis/opencart/opencart-shipping-address-api/) — Shipping address management
+- [OpenCart Shipping Methods API](https://apis.io/apis/opencart/opencart-shipping-methods-api/) — Available shipping method retrieval and selection
+- [OpenCart Subscriptions API](https://apis.io/apis/opencart/opencart-subscriptions-api/) — Subscription order management
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Opencart Agentic Access](https://apis.io/agentic-access/opencart/opencart-agentic-access/)
+
+#### JSON Schema (3)
+
+The data models the API reads and writes.
+
+- [Address](https://apis.io/schemas/opencart/address/)
+- [CartProduct](https://apis.io/schemas/opencart/cart-product/)
+- [Order](https://apis.io/schemas/opencart/order/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Opencart Context](https://apis.io/jsonld/opencart/opencart-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [OpenCart API Vocabulary](https://apis.io/vocabularies/opencart/opencart-vocabulary/)
+
+#### Examples (6)
+
+Example requests and responses.
+
+- [Add Product To Cart Request](https://apis.io/examples/opencart/add-product-to-cart-request/)
+- [Add Product To Cart Response](https://apis.io/examples/opencart/add-product-to-cart-response/)
+- [Confirm Order Response](https://apis.io/examples/opencart/confirm-order-response/)
+- [Login Request](https://apis.io/examples/opencart/login-request/)
+- [Login Response](https://apis.io/examples/opencart/login-response/)
+- [Set Customer Request](https://apis.io/examples/opencart/set-customer-request/)
+
+#### Collections (10)
+
+Postman and Open Collection request collections.
+
+- [OpenCart REST Affiliates API](https://apis.io/collections/opencart/open-opencart-affiliates-api/)
+- [OpenCart REST Affiliates Authentication API](https://apis.io/collections/opencart/open-opencart-authentication-api/)
+- [OpenCart REST Affiliates Cart API](https://apis.io/collections/opencart/open-opencart-cart-api/)
+- [OpenCart REST Affiliates Customer API](https://apis.io/collections/opencart/open-opencart-customer-api/)
+- [OpenCart REST Affiliates Orders API](https://apis.io/collections/opencart/open-opencart-orders-api/)
+- [OpenCart REST Affiliates Payment Address API](https://apis.io/collections/opencart/open-opencart-payment-address-api/)
+- [OpenCart REST Affiliates Payment Methods API](https://apis.io/collections/opencart/open-opencart-payment-methods-api/)
+- [OpenCart REST Affiliates Shipping Address API](https://apis.io/collections/opencart/open-opencart-shipping-address-api/)
+- [OpenCart REST Affiliates Shipping Methods API](https://apis.io/collections/opencart/open-opencart-shipping-methods-api/)
+- [OpenCart REST Affiliates Subscriptions API](https://apis.io/collections/opencart/open-opencart-subscriptions-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [OpenCart — jsonschema rules](https://apis.io/rules/opencart/opencart-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Opencart Authentication](https://apis.io/security/opencart/opencart-authentication/)
+- [Opencart Domain Security](https://apis.io/security/opencart/opencart-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Opencart Plans Pricing](https://apis.io/plans/opencart/opencart-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Opencart Rate Limits](https://apis.io/rate-limits/opencart/opencart-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Opencart Finops](https://apis.io/finops/opencart/opencart-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.opencart.com)
+- [Documentation](https://docs.opencart.com)
+- [Pricing](https://www.opencart.com/index.php?route=cms/download)
+- [Blog](https://www.opencart.com/blog)
+
+## API Evangelist rating
+
+**Kin Score 33.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 52.6 |
+| Contract governance | 9.8 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 15.8 |
+
+**Agent readiness 20.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/opencart/](https://apis.io/providers/opencart/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for OpenCart: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/opencart/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
